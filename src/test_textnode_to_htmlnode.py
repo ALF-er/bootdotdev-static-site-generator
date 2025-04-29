@@ -4,7 +4,7 @@ from enum import Enum
 from textnode_to_htmlnode import textnode_to_htmlnode
 from textnode import TextType, TextNode
 
-class TestTextNode(unittest.TestCase):
+class TestTextNodeToHTMLNode(unittest.TestCase):
     def test_normal_text_node(self):
         text_node = TextNode("Regular text", TextType.NORMAL)
         html_node = textnode_to_htmlnode(text_node)
