@@ -25,7 +25,6 @@ class TestSplitNodesDelimiter(unittest.TestCase):
             TextNode("bold", TextType.BOLD),
             TextNode(" and this is ", TextType.NORMAL),
             TextNode("also bold", TextType.BOLD),
-            TextNode("", TextType.NORMAL)
         ]
         result = split_nodes_delimiter(input_nodes, "*", TextType.BOLD)
 
@@ -43,7 +42,6 @@ class TestSplitNodesDelimiter(unittest.TestCase):
         expected = [
             TextNode("Normal text", TextType.NORMAL),
             TextNode("Bold text *with delimiters*", TextType.BOLD),
-            TextNode("", TextType.NORMAL),
             TextNode("More", TextType.ITALIC),
             TextNode(" normal text", TextType.NORMAL)
         ]
@@ -115,7 +113,6 @@ class TestSplitNodesDelimiter(unittest.TestCase):
             TextNode("this is a link", TextType.LINK),
             TextNode(" and ", TextType.NORMAL),
             TextNode("this is bold", TextType.BOLD),
-            TextNode("", TextType.NORMAL)
         ]
 
         # Check first transformation
