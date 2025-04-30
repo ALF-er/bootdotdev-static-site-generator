@@ -9,9 +9,9 @@ class TestTextNode(unittest.TestCase):
         self.assertEqual(node, node2)
 
     def test_create_text_node(self):
-        node1 = TextNode("Hello world", TextType.NORMAL)
+        node1 = TextNode("Hello world", TextType.TEXT)
         self.assertEqual(node1.text, "Hello world")
-        self.assertEqual(node1.text_type, TextType.NORMAL)
+        self.assertEqual(node1.text_type, TextType.TEXT)
         self.assertIsNone(node1.url)
 
         node2 = TextNode("Important", TextType.BOLD)
@@ -24,11 +24,11 @@ class TestTextNode(unittest.TestCase):
         self.assertEqual(node3.url, "https://example.com")
 
     def test_equality_comparison(self):
-        node1 = TextNode("Same content", TextType.NORMAL)
-        node2 = TextNode("Same content", TextType.NORMAL)
+        node1 = TextNode("Same content", TextType.TEXT)
+        node2 = TextNode("Same content", TextType.TEXT)
         self.assertEqual(node1, node2)
 
-        node3 = TextNode("Different content", TextType.NORMAL)
+        node3 = TextNode("Different content", TextType.TEXT)
         self.assertNotEqual(node1, node3)
 
         node4 = TextNode("Same content", TextType.BOLD)
@@ -39,8 +39,8 @@ class TestTextNode(unittest.TestCase):
         self.assertNotEqual(node5, node6)
 
     def test_string_representation(self):
-        node1 = TextNode("Test", TextType.NORMAL)
-        self.assertEqual(repr(node1), "TextNode(Test, normal, None)")
+        node1 = TextNode("Test", TextType.TEXT)
+        self.assertEqual(repr(node1), "TextNode(Test, text, None)")
 
         node2 = TextNode("def hello():", TextType.CODE)
         self.assertEqual(repr(node2), "TextNode(def hello():, code, None)")
