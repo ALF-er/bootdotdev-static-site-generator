@@ -14,7 +14,7 @@ def block_to_quote_htmlnode(block):
     return ParentNode("blockquote", children)
 
 def block_to_heading_htmlnode(block):
-    hash_count = max(len(block) - len(block.lstrip("#")), 6)
+    hash_count = min(len(block) - len(block.lstrip("#")), 6)
     textnodes = text_to_textnodes(block.lstrip("# "))
     children = list(map(textnode_to_htmlnode, textnodes))
     return ParentNode(f"h{hash_count}", children)
